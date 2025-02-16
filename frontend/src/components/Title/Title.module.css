@@ -1,0 +1,15 @@
+.TitleWrapper {
+    width: 150px;
+    height: 250px;
+}
+
+.titleCover {
+    width: 100%;
+    height: 100%;
+}
+
+.titleName {
+    color: #fff;
+    text-align: center;
+    word-break: break-all;
+}
