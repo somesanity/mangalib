@@ -33,7 +33,7 @@ export const MainPage = () => {
             name={title.title_name}
             cover={title.title_cover}
             totalNumberChapter={200}
-            id={title.id}
+            id={title.id}  
             />
         ))}
     </div>

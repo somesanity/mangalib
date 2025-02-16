@@ -1,0 +1,29 @@
+.header {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    backdrop-filter: blur(20px);
+    gap: 10px;
+    position: sticky;
+    top: 0;
+}
+
+.header p {
+    color: #fff;
+}
+
+.header img {
+    width: calc(150px / 4);
+    height: calc(250px / 4);
+    object-fit: cover; 
+}
+
+.chapterImagesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

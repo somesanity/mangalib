@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 
 interface TitleProps {
-    id: number;
+    id?: number;
     cover: string;
     name: string;
     totalNumberChapter: number;
@@ -13,10 +13,15 @@ interface TitleProps {
 export const Title: FC<TitleProps> = ({cover, name, totalNumberChapter, id}) => {
   return (
     <div className={classes.TitleWrapper}>
-      <Link to={`/title/${id}`}>
-        <img className={classes.titleCover} src={cover} alt={name + ' cover'} />
-      </Link>
-        <p className={classes.titleName}>{name}</p>
+      {id 
+        ?
+          <Link to={`/title/${id}`}>
+            <img className={classes.titleCover} src={cover} alt={name + ' cover'} />
+          </Link>
+        : 
+          <img className={classes.titleCover} src={cover} alt={name + ' cover'} />
+      }
+      <p className={classes.titleName}>{name}</p>
     </div>
   )
 }

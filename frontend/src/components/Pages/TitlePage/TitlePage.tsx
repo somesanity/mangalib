@@ -4,9 +4,13 @@ import { Title } from '../../Title/Title';
 import { GetTitleById } from '../../../Axios/GetTitleById';
 import { getTitleDataApi } from '../../../Axios/GetTitles';
 
+import classes from './TitlePage.module.css';
+import { SelectChapter } from '../../SelectChapter/SelectChapter';
+import { GetChaptersApi, GetTitleChapters } from '../../../Axios/GetTitleChapters';
 export const TitlePage = () => {
 
-const [titleData, setTitleData] = useState<getTitleDataApi[] | undefined>()
+const [titleData, setTitleData] = useState<getTitleDataApi[]>([])
+const [chaptersData, setChaptersData] = useState<GetChaptersApi[]>([])
 
 const { id } = useParams<{ id: string }>();
 
@@ -21,28 +25,43 @@ const getTitle = async () => {
     }
 }
 
-useEffect(() => {
-    getTitle()
-}, [id])
+const getChapters = async () => {
+  try {
+      const data = await GetTitleChapters(id)
+      if(data) {
+          setChaptersData(data)
+      }
+  } catch (error) {
+      console.log(error)
+  }
+}
 
 useEffect(() => {
-    console.log(titleData)
-}, [])
+    getTitle()
+    getChapters()
+}, [id])
 
 
   return (
-    <div className="container">
-{titleData && titleData.length > 0 ? (
-  <Title
-    name={titleData[0].title_name}
-    cover={titleData[0].title_cover}
-    totalNumberChapter={200}
-    id={titleData[0].id}
-  />
-) : (
-  <p>Загрузка...</p>
-)}
+  <div className="container">
+    <div className={classes.titleWrapper}>
+      {titleData.map(title => (
+      <Title
+        name={titleData[0].title_name}
+        cover={titleData[0].title_cover}
+        totalNumberChapter={200}
+      />
+      ))}
+    </div>
 
+    <div className={classes.SelectChapterWrapper}>
+      {chaptersData.map(title => (
+      <SelectChapter
+        chapter={title.chapter_number}
+        name={title.chapter_title}
+      />
+      ))}
+    </div>
   </div>
   )
 }

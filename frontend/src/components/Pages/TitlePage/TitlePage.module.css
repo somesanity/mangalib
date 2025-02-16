@@ -1,0 +1,15 @@
+.titleWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.SelectChapterWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+    
+}
