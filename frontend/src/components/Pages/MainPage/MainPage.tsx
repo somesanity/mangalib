@@ -4,6 +4,7 @@ import { Search } from '../../Search/Search';
 import { Title } from '../../Title/Title';
 
 import classes from './MainPage.module.css';
+import { Link } from 'react-router';
 
 export const MainPage = () => {
 
@@ -24,8 +25,14 @@ export const MainPage = () => {
 
   return (
     <div className='container'>
+    
+    <div className={classes.searchSection}>
+      <Search></Search>
+      <Link to={'/title/createnewtitle'}>
+      <div className={classes.addTitle}>+</div>
+      </Link>
+    </div>
 
-    <Search></Search>
     <div className={classes.titleWrapper}>
         {titleData.map((title) => (
             <Title 

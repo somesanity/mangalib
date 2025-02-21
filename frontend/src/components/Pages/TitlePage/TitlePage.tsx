@@ -61,6 +61,8 @@ useEffect(() => {
         name={title.chapter_title}
       />
       ))}
+
+      <p>Добавить главу +</p>
     </div>
   </div>
   )

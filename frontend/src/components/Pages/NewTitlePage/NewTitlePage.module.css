@@ -1,0 +1,64 @@
+.addTitleFormWrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.addTitleForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+}
+
+.addCover {
+    width: 150px;
+    height: 250px;
+    border: solid #fff 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.addCover span {
+    color: #fff;
+    margin-bottom: 10px;
+    word-break:keep-all;
+    text-align: center;
+}
+
+.addCoverInput {
+    display: none;
+}
+
+.coverImage {
+    width: 100%;
+    height: 100%;
+}
+
+.TitleNameInput {
+    margin-top: 10px;
+    padding: 5px;
+    background: transparent;
+    border: solid #fff 1px;
+    outline: none;
+    color: #fff;
+}
+
+.CreateNewTitleSubmit {
+    margin-top: 10px;
+    padding: 5px;
+    background: transparent;
+    border: solid #fff 1px;
+    border-radius: 3px;
+    color: #fff;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+
+.CreateNewTitleSubmit:hover {
+    background-color: #fff;
+    color: #000;
+}

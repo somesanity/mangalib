@@ -3,3 +3,16 @@
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.searchSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.addTitle {
+    background-color: #fff;
+    padding: 5px 7px;
+    border-radius: 7px;
+}

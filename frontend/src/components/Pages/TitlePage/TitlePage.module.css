@@ -11,5 +11,17 @@
     flex-direction: column;
     gap: 15px;
     margin-top: 40px;
-    
+}
+
+.SelectChapterWrapper p {
+    color: #fff;
+    padding: 10px;
+    border: solid #fff 1px;
+    cursor: pointer;
+    transition-duration:  .3s;
+}
+
+.SelectChapterWrapper p:hover {
+    background-color: #fff;
+    color: #000;
 }
