@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-
+import env from "react-dotenv";
 import classes from './NewTitlePage.module.css';
 
 export const NewTitlePage = () => {
@@ -56,7 +56,7 @@ export const NewTitlePage = () => {
         formData.append('cover_image', selectedFile);
         
         try {
-            const response = await fetch('http://localhost:2000/title', {
+            const response = await fetch(`${env.API_URL}/title`, {
                 method: 'POST',
                 body: formData,
             });

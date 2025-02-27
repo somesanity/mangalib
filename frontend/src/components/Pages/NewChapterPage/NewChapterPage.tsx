@@ -6,6 +6,7 @@ import { GetCover } from '../../../Axios/GetCover';
 
 import classes from './NewChapterPage.module.css';
 import { Button } from '@mui/material';
+import env from 'react-dotenv';
 
 export const NewChapterPage = () => {
   const { id, chapterid } = useParams<string>();
@@ -41,7 +42,7 @@ export const NewChapterPage = () => {
     });
   
     try {
-      const response = await fetch(`http://localhost:2000/title/${id}/chapter/${chapterid}/pages`, {
+      const response = await fetch(`${env.API_URL}/title/${id}/chapter/${chapterid}/pages`, {
         method: 'POST',
         body: formData,
       });

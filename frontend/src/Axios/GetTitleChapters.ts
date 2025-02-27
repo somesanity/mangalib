@@ -1,4 +1,5 @@
 import axios from "axios"
+import env from "react-dotenv";
 
 export interface GetChaptersApi {
     id: number;
@@ -8,7 +9,7 @@ export interface GetChaptersApi {
 }
 
 export const GetTitleChapters = async (titleId: string | undefined) => {
-    const url = `http://localhost:2000/title/${titleId}/chapters`
+    const url = `${env.API_URL}/title/${titleId}/chapters`
     try {
         const response = await axios.get<GetChaptersApi[]>(url)
         return response.data

@@ -4,6 +4,7 @@ import classes from './ChapterPage.module.css'
 import { GetCover } from '../../../Axios/GetCover';
 import { useParams } from 'react-router';
 import { GetPagesForChapter, GetPagesForChapterApi } from '../../../Axios/GetPagesForChapter';
+import env from "react-dotenv";
 
 export const ChapterPage: FC = () => {
     const {id, chapterid} = useParams<{ id: string, chapterid: string }>() 
@@ -51,7 +52,7 @@ export const ChapterPage: FC = () => {
 
         <div className={classes.chapterImagesWrapper}>
             {imgPages.map(ChapterImage => (
-                <img src={`http://localhost:2000${ChapterImage.image_url}`} alt="" />
+                <img src={`${env.API_URL}/uploads/${ChapterImage.image_url}`} alt="" />
             ))}
         </div>
     </div>

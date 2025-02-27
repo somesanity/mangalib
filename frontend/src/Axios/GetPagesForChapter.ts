@@ -1,4 +1,5 @@
 import axios from "axios"
+import env from "react-dotenv";
 
 export interface GetPagesForChapterApi {
     page_number: number;
@@ -6,7 +7,7 @@ export interface GetPagesForChapterApi {
 }
 
 export const GetPagesForChapter = async (titleId: string | undefined, chapterId: string | undefined) => {
-    const url = `http://localhost:2000/title/${titleId}/chapter/${chapterId}`
+    const url = `${env.API_URL}/title/${titleId}/chapter/${chapterId}`
     try {
         const response = await axios.get<GetPagesForChapterApi[]>(url)
         return response.data

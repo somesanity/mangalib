@@ -24,7 +24,7 @@ CREATE TABLE Chapters (
 
 CREATE TABLE Pages (
     id SERIAL PRIMARY KEY,
-    chapter_id INT REFERENCES Chapters(id) ON DELETE CASCADE,
+    chapter_id INT REFERENCES Chapters(chapter_number) ON DELETE CASCADE,
     page_number INT NOT NULL,
     image_url VARCHAR(255) NOT NULL
 );

@@ -1,4 +1,5 @@
 import axios from "axios";
+import env from "react-dotenv";
 
 export interface getTitleDataApi {
     id: number;
@@ -6,7 +7,7 @@ export interface getTitleDataApi {
     title_cover: string;
 }
 
-const url = 'http://localhost:2000/'
+const url = `${env.API_URL}/title`
 
 export const getTitles = async () => {
     try {

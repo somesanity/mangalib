@@ -1,7 +1,8 @@
 import axios from "axios"
+import env from "react-dotenv";
 
 export const addNewChapter = async (titleid: string, chapterNumber: number, chapterName: string) => {
-    const url = `http://localhost:2000/title/${titleid}/chapter`
+    const url = `${env.API_URL}/title/${titleid}/chapter`
     try {
         const request = await axios.post<string>(url, 
             { 
