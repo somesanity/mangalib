@@ -51,7 +51,7 @@ export const ChapterPage: FC = () => {
 
         <div className={classes.chapterImagesWrapper}>
             {imgPages.map(ChapterImage => (
-                <img src={ChapterImage.image_url} alt="" />
+                <img src={`http://localhost:2000${ChapterImage.image_url}`} alt="" />
             ))}
         </div>
     </div>

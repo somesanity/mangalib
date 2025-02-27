@@ -7,10 +7,14 @@ import { getTitleDataApi } from '../../../Axios/GetTitles';
 import classes from './TitlePage.module.css';
 import { SelectChapter } from '../../SelectChapter/SelectChapter';
 import { GetChaptersApi, GetTitleChapters } from '../../../Axios/GetTitleChapters';
+import { addNewChapter } from '../../../Axios/addNewChapter';
 export const TitlePage = () => {
 
 const [titleData, setTitleData] = useState<getTitleDataApi[]>([])
 const [chaptersData, setChaptersData] = useState<GetChaptersApi[]>([])
+const [addNewChapterIsClicked, setAddNewChapterIsClicked] = useState<boolean>(false);
+const [newChapterNumberInput, setNewChapterNumberInput] = useState<number>(0);
+const [newChapterNameInput, setNewChapterNameInput] = useState<string>('');
 
 const { id } = useParams<{ id: string }>();
 
@@ -36,6 +40,17 @@ const getChapters = async () => {
   }
 }
 
+const createNewChapter = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  e.preventDefault()
+
+  if(newChapterNameInput && newChapterNumberInput) {
+    const req = await addNewChapter(id as string, newChapterNumberInput, newChapterNameInput);
+    console.log(req)
+  }
+}
+
+
+
 useEffect(() => {
     getTitle()
     getChapters()
@@ -59,10 +74,33 @@ useEffect(() => {
       <SelectChapter
         chapter={title.chapter_number}
         name={title.chapter_title}
+        titleId={Number(id)}
       />
       ))}
 
-      <p>Добавить главу +</p>
+      <p onClick={
+        () => addNewChapterIsClicked 
+        ? setAddNewChapterIsClicked(false) 
+        : setAddNewChapterIsClicked(true)}>Добавить главу +  
+      </p>
+
+      {addNewChapterIsClicked 
+      ? 
+      <div>
+        <form action="">
+          <input type="number" value={newChapterNumberInput} onChange={(e) => setNewChapterNumberInput(Number(e.target.value))} placeholder='введите номер главы' />
+          <input type="text" value={newChapterNameInput} onChange={(e) => setNewChapterNameInput(e.target.value)} placeholder='введите название главы' />
+          <button type='submit' onClick={(e) => createNewChapter(e)}>Создать главу</button>
+        </form>
+        <SelectChapter 
+          chapter={newChapterNumberInput}
+          name={newChapterNameInput}
+          titleId={Number(id)}
+          />
+      </div>
+      :
+        ''
+      }
     </div>
   </div>
   )

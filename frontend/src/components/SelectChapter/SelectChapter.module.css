@@ -3,4 +3,18 @@
     background-color: #fff;
     min-width: 490px;
     max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SelectChapterWrapper img {
+    width: 18px;
+    height: 18px;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+
+.SelectChapterWrapper img:hover {
+    transform: scale(1.2);
 }

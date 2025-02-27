@@ -6,10 +6,11 @@ const getPagesforChapter = async (req, res) => {
     try {
         const query =
         `SELECT Pages.page_number, Pages.image_url 
-        FROM Pages
-        JOIN Chapters ON Pages.chapter_id = Chapters.id
-        WHERE Chapters.id = $1 AND Chapters.title_id = $2
-        ORDER BY Pages.page_number`;
+            FROM Pages
+        JOIN Chapters ON Pages.chapter_id = Chapters.chapter_number
+        WHERE Chapters.title_id = $1 AND Chapters.chapter_number = $2
+        ORDER BY Pages.page_number;
+        `;
 
         const values = [id, chapterid]
         requestDB = await pool.query(query, values);

@@ -10,7 +10,7 @@ export const MainPage = () => {
 
     const [titleData, setTitleData] = useState<getTitleDataApi[]>([]);
 
-    const getTitleData = async () => {
+  const getTitleData = async () => {
     const data = await getTitles();
 
    if (data) {
