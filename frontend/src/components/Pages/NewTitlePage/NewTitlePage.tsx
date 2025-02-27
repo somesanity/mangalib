@@ -56,7 +56,7 @@ export const NewTitlePage = () => {
         formData.append('cover_image', selectedFile);
         
         try {
-            const response = await fetch(`${env.REACT_APP_API_URL}/title`, {
+            const response = await fetch(`${env.REACT_APP_API_URL}/api/title`, {
                 method: 'POST',
                 body: formData,
             });

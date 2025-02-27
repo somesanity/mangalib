@@ -9,7 +9,7 @@ export interface GetChaptersApi {
 }
 
 export const GetTitleChapters = async (titleId: string | undefined) => {
-    const url = `${env.API_URL}/title/${titleId}/chapters`
+    const url = `${env.REACT_APP_API_URL}/api/title/${titleId}/chapters`
     try {
         const response = await axios.get<GetChaptersApi[]>(url)
         return response.data

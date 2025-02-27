@@ -7,7 +7,7 @@ export interface getTitleDataApi {
     title_cover: string;
 }
 
-const url = `${env.REACT_APP_API_URL}/title`
+const url = `${env.REACT_APP_API_URL}/api/title`
 
 export const getTitles = async () => {
     try {

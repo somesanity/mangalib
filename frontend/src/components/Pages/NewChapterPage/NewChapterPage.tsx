@@ -42,7 +42,7 @@ export const NewChapterPage = () => {
     });
   
     try {
-      const response = await fetch(`${env.REACT_APP_API_URL}/title/${id}/chapter/${chapterid}/pages`, {
+      const response = await fetch(`${env.REACT_APP_API_URL}/api/title/${id}/chapter/${chapterid}/pages`, {
         method: 'POST',
         body: formData,
       });

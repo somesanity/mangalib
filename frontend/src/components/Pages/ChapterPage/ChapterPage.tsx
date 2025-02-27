@@ -52,7 +52,7 @@ export const ChapterPage: FC = () => {
 
         <div className={classes.chapterImagesWrapper}>
             {imgPages.map(ChapterImage => (
-                <img src={`${env.REACT_APP_API_URL}/uploads/${ChapterImage.image_url}`} alt="" />
+                <img src={`${env.REACT_APP_API_URL}/api/uploads/${ChapterImage.image_url}`} alt="" />
             ))}
         </div>
     </div>

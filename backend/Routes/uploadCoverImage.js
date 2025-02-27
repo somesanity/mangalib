@@ -1,5 +1,6 @@
 const pool = require('../db');
 const multer = require('multer');
+require('dotenv').config();
 const path = require('path');
 
 const storage = multer.diskStorage({
@@ -29,7 +30,7 @@ const uploadCoverImage = async (req, res) => {
                 return res.status(400).json({ error: 'Обложка обязательна' });
             }
 
-            const titleCoverPath = `http://localhost:2000/uploads/${req.file.filename}`
+            const titleCoverPath = `http://${process.env.HOSTAPI}:${process.env.PORT}/uploads/${req.file.filename}`
 
             const query = 'INSERT INTO title (title_cover, title_name) VALUES ($1, $2) RETURNING *';
             const values = [titleCoverPath, title_name];
