@@ -1,3 +1,3 @@
 window.env = {
-  "API_URL": "http://91.147.110.10:2000"
+  "REACT_APP_API_URL": "http://91.147.110.10:2000"
 };
