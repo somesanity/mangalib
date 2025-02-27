@@ -28,14 +28,14 @@ app.use('/uploads', [
 ]);
 
 // API маршруты (ставить кста надо ПОСЛЕ статики А ЕЩЁ НЕЛЬЗЯ ИСПОЛЬЗОВАТЬ ОДНИ И ТЕ ЖЕ МАРШРУТЫ В REACT ROUTER DOM И EXPRESS! ПРИ ОБНОВЛЕНИИ СТРАНИЦЫ БУДЕТ КИДАТЬ НА BACKEND!!!)
-app.get('api/title', getTitles);
-app.get('api/title/:id', getTitleById);
-app.get('api/title/:id/chapters', getTitleChapters);
-app.get('api/title/:id/cover', getCover);
-app.post('api/title', uploadCoverImage);
-app.post('api/title/:id/chapter', postNewChapter);
-app.get('api/title/:id/chapter/:chapterid', getPagesforChapter);
-app.post('api/title/:id/chapter/:chapterid/pages', uploadPages.array('pages', 100), postNewPages);
+app.get('/api/title', getTitles);
+app.get('/api/title/:id', getTitleById);
+app.get('/api/title/:id/chapters', getTitleChapters);
+app.get('/api/title/:id/cover', getCover);
+app.post('/api/title', uploadCoverImage);
+app.post('/api/title/:id/chapter', postNewChapter);
+app.get('/api/title/:id/chapter/:chapterid', getPagesforChapter);
+app.post('/api/title/:id/chapter/:chapterid/pages', uploadPages.array('pages', 100), postNewPages);
 
 app.use(express.static(path.join(__dirname, '/build')));
 

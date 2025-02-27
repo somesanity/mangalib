@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { GetCover } from '../../../Axios/GetCover';
 
 
@@ -10,7 +10,7 @@ import env from 'react-dotenv';
 
 export const NewChapterPage = () => {
   const { id, chapterid } = useParams<string>();
-
+  const navigate = useNavigate();
   const [cover, setCover] = useState<string>();
   const [inputs, setInputs] = useState<{ id: number; file: File | null }[]>([
     { id: Date.now(), file: null }
@@ -52,6 +52,7 @@ export const NewChapterPage = () => {
       const result = await response.json();
       console.log(result);
       alert('Страницы успешно загружены');
+      navigate(`/title/${id}/chapter/${chapterid}`)
     } catch (error) {
       console.error(error);
       alert('Ошибка загрузки страниц');

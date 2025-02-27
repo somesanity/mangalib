@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import env from "react-dotenv";
 import classes from './NewTitlePage.module.css';
+import { useNavigate } from 'react-router';
 
 export const NewTitlePage = () => {
+    const navigate = useNavigate();
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const [coverImage, setCoverImage] = useState<string | null>(null);
     const [titleName, setTitleName] = useState('');
@@ -46,7 +48,7 @@ export const NewTitlePage = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         
-            if (!selectedFile) {
+        if (!selectedFile) {
         console.error('Файл не выбран');
         return;
     }
@@ -62,7 +64,10 @@ export const NewTitlePage = () => {
             });
     
             const data = await response.json();
-            console.log('Ответ сервера:', data);
+            
+            if(data) {
+                navigate('/')
+            }
         } catch (error) {
             console.error('Ошибка:', error);
         }
